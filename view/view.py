@@ -2,7 +2,7 @@ import tkinter
 from tkinter.constants import *
 from  tkinter import StringVar, IntVar
 from tkinter.ttk import *
-
+from model.weather import Weather
 
 class View(tkinter.Tk):
 
@@ -23,6 +23,8 @@ class View(tkinter.Tk):
         self.varWindDir = StringVar()
         self.varHumid = StringVar()
         self.varUnits = IntVar()
+        self.varImg =  tkinter.PhotoImage(data=Weather().getConditionIcon())
+        
 
 
         self.varTemp.set("90")
@@ -35,11 +37,16 @@ class View(tkinter.Tk):
         self._createFrameDetails()
         self._createFrameControls()
     
+    def _createFrameIcon(self):
+        self.frameInfo = Frame(self.mainframe)
+
+        
+    
     def _createFrameSerachBar(self):
         self.frameSearchBar = Frame(self.mainframe)
 
         comboSearch = Combobox(self.frameSearchBar, textvariable=self.varSearch)
-        buttonSearch = Button(self.frameSearchBar, text = "Search", command=self.controller.handleButtonSearch)
+        buttonSearch = Button(self.frameSearchBar, text = "Search" ,command=self.controller.handleButtonSearch)
 
         comboSearch.pack(padx = 10, side = LEFT)
         buttonSearch.pack(side=RIGHT)
@@ -47,10 +54,12 @@ class View(tkinter.Tk):
 
     def _createFrameInfo(self):
         self.frameInfo = Frame(self.mainframe)
-        
+
+  
+
         labelTemp = Label(self.frameInfo, textvariable=self.varTemp)
         labelLocation = Label(self.frameInfo, textvariable= self.varLocation)
-        labelIcon = Label(self.frameInfo, text = 'image')
+        labelIcon = Label(self.frameInfo,image = self.varImg)
 
         labelTemp.pack(pady = 5)
         labelLocation.pack(pady = 5)

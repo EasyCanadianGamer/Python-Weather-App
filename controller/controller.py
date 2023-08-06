@@ -24,6 +24,7 @@ class Controller:
             self.view.varWindSpeed.set(self.weather.getWindSpeedMPH())
             self.view.varWindDir.set(self.weather.getWindDirection())
             self.view.varHumid.set(self.weather.getHumid())
+            
 
             if self.view.varUnits.get() == 1:
                 self.view.varTemp.set(self.weather.getCurrentTempF())

@@ -1,11 +1,11 @@
 import requests
-import pyimage
+import tkinter
 API_KEY = 'fe45f6fdef7b4ce7a45174059230308'
 
 
 class Weather:
 
-    def __init__(self, loaction:str= "08505"):
+    def __init__(self, loaction:str= "08341"):
         self.weatherData = {}
         self.fetch(loaction)
 
@@ -55,7 +55,15 @@ class Weather:
 
 
     def getConditionIcon(self):
-        icon_url = f""
+        condition = self.getCurrentData('condition')
+        icon_url = f"http:{condition['icon']}"
+        try:
+            icon_data = requests.get(icon_url).content
+        except Exception as ex:
+            print(ex)
+            icon_data = None
+        return icon_data
+        
 
 
     def getWindSpeedMPH(self):
