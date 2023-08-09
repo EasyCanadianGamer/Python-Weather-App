@@ -1,10 +1,14 @@
-import tkinter
+import tkinter 
 from tkinter.constants import *
 from  tkinter import StringVar, IntVar
 from tkinter.ttk import *
 from model.weather import Weather
+from tkinter import *
+import tkinter.messagebox
 
 class View(tkinter.Tk):
+    
+    
 
     def __init__(self,controller):
         super().__init__()
@@ -36,6 +40,7 @@ class View(tkinter.Tk):
         self._createFrameInfo()
         self._createFrameDetails()
         self._createFrameControls()
+                                                                  
     
     def _createFrameIcon(self):
         self.frameInfo = Frame(self.mainframe)
