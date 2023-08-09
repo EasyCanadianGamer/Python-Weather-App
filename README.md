@@ -10,3 +10,7 @@ Then you need to download the files from the GitHub and run Main.py
 
 ### OR
 You can download the executable file. Right now it's only for windows 10/11 but planning for Linux and MacOS.
+__________________________________________________________________________________________________________________________________
+## What to fix or add
+- Make the UI Cleaner
+- Fix the condition icon when updating to different locations
